@@ -82,5 +82,5 @@ def saludo_con_render(request, nombre, apellido):
 
 def condicion_y_bucle(request):
     return render(request, 'condicion_y_bucle.html', {
-        "listado_de_animales": [1, 2, 3, 4]
+        "listado_de_animales": [1, 2, 3, 4, 5, 6]
     })

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Condicion y Bucle</h1>
+    {{listado_de_animales}}
+  <ul>  
+    {% for valor in listado_de_animales %}
+    <li>
+        {%if valor|divisibleby:"2"%}
+             <span style="color: red;">
+             {{valor}}
+             </span>
+        {% else %}
+             <span style="color: blue;">
+             {{valor}}
+                </span>
+        {% endif %}
+    </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

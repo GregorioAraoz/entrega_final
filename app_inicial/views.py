@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.template import Template, Context, loader
 from app_inicial.models import Animal
 def app_inicial(request):
-    return HttpResponse('<h1>Hola, esta es la app inicial</h1>')
+    return render(request, 'index.html')
 
 def saludo(request):
     fecha = datetime.now()

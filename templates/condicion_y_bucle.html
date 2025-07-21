@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+{% extends "main_template.html" %}
+
+{% block title_text  %}Views Creadas{% endblock title_text  %}
+
+{% block texto_principal %} 
+    Condicion y Bucle
+{% endblock texto_principal %}
+
+{% block main_content %}
+    <h1>Condicion y Bucle</h1>
+    {{listado_de_animales}}
+    <ul>  
+        {% for valor in listado_de_animales %}
+            <li>
+                {% if valor|divisibleby:"2" %}
+                    <span style="color: red;">{{valor}}</span>
+                {% else %}
+                    <span style="color: blue;">{{valor}}</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock main_content %}
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,8 +47,6 @@
     {% endfor %}
     </ul>
 </body>
-</html>
+</html> {% endcomment %}
 
-{% comment %} {% extends "main_template.html" %} {% endcomment %}
 
-{% block title_text  %}Views Creadas{% endblock title_text  %}

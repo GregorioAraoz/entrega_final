@@ -3,6 +3,8 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 from app_inicial.models import Animal
+from app_inicial.forms import formularioanimal
+
 def app_inicial(request):
     return render(request, 'main_template.html')
 
@@ -85,14 +87,19 @@ def saludo_con_render(request, nombre, apellido):
 
 def condicion_y_bucle(request):
     return render(request, 'condicion_y_bucle.html', {
-        "listado_de_animales": [1, 2, 3, 4, 5, 6]
+        "listado_de_numeros": [1, 2, 3, 4, 5, 6]
     })
     
     
-def crear_animales(request, especie, alimentacion):
-    
-    animal = Animal(especie=especie, alimentacion=alimentacion)
-    
-    animal.save()
-    
-    return render(request, 'crear_animales.html', {'animal': animal})
+def crear_animales(request):
+    if request.method == 'POST':
+        formulario = formularioanimal(request.POST)
+        if formulario.is_valid():
+            nueva_data = formulario.cleaned_data
+            animal = Animal(especie=nueva_data['especie'], alimentacion=nueva_data['alimentacion'])
+            animal.save()
+            return render(request, 'animal_creado.html', {'animal': animal})
+    else:
+        formulario = formularioanimal()
+
+    return render(request, 'crear_animales.html', {'formulario': formulario})

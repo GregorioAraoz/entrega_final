@@ -1,11 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Se Creó el Animal {{animal.especie}} que es {{animal.alimentacion}}</h1>
-</body>
-</html>
+{% extends "main_template.html" %}
+
+{% block title_text  %}Agregar Animales{% endblock title_text  %}
+
+{% block texto_principal %} 
+    Agregar un nuevo Animal
+{% endblock texto_principal %}
+
+{% block main_content %}
+<form action="" method="POST">
+    {% csrf_token %}
+{% comment %} </p>
+   Especie:
+  <input type="text" name="especie" placeholder="Tigre, Elefante, Gato, etc...">
+
+<p>
+   
+</p>
+    Alimentación:
+    <input type="text" name="alimentacion" placeholder="Carnivoro, Herbívoro, Omnívoro">
+<p> {% endcomment %}
+
+{{formulario}}
+    <input type="submit" value="Crear Animal">
+{% endblock main_content %}

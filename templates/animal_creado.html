@@ -1,0 +1,11 @@
+{% extends "main_template.html" %}
+
+{% block title_text  %}Animales{% endblock title_text  %}
+
+{% block texto_principal %} 
+     {{animal.especie}} fue agregado con éxito
+{% endblock texto_principal %}
+
+{% block main_content %}
+    Se Creó el Animal {{animal.especie}} que es {{animal.alimentacion}}
+{% endblock main_content %}

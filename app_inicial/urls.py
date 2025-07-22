@@ -9,5 +9,5 @@ urlpatterns = [
     # path('saludo/<str:nombre>/<str:apellido>/', saludo_con_cargador),
     path('saludo/<str:nombre>/<str:apellido>/', saludo_con_render),
     path('template-prueba/', condicion_y_bucle, name='condicion_y_bucle'),
-    path('animal/crear/<str:especie>/<str:alimentacion>/', crear_animales)
+    path('animal/crear/', crear_animales, name='crear_animal')
 ]

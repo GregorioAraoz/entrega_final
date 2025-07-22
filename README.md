@@ -12,4 +12,4 @@ Este proyecto es una pequeña aplicación hecha con Django.
 
 3. **Completar un formulario**
    - Podés cargar una especie de animal (por ejemplo: elefante) y decir si es herbívoro o carnívoro.
-   - Luego de enviar el formulario, aparece un mensaje confirmando que el animal
+   - Luego de enviar el formulario, aparece un mensaje confirmando que el animal fue agregado con exito.

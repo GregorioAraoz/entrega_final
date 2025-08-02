@@ -1,0 +1,30 @@
+{% extends "main_template.html" %}
+
+{% block title_text  %}Animales{% endblock title_text  %}
+
+{% block texto_principal %} 
+     Listado de Animales
+{% endblock texto_principal %}
+
+{% block main_content %}
+
+<p>
+    <form action="">
+
+        {{formulario}}
+        <input type="submit" value= "Buscar">
+    </form>
+</p>
+
+{% if animales %}
+    <ul>
+     {% for Animal in animales %}
+        <li>
+            {{Animal}}
+        </li>
+     {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay animales registrados.</p>
+{% endif %}
+{% endblock main_content %} 

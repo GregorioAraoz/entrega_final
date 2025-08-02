@@ -3,7 +3,7 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 from app_inicial.models import Animal
-from app_inicial.forms import formularioanimal
+from app_inicial.forms import formularioanimal,formulariobusqueda
 
 def app_inicial(request):
     return render(request, 'main_template.html')
@@ -103,3 +103,15 @@ def crear_animales(request):
         formulario = formularioanimal()
 
     return render(request, 'crear_animales.html', {'formulario': formulario})
+
+
+def listado_animales(request):
+    
+    formulario = formulariobusqueda(request.GET)
+    if formulario.is_valid():
+        animal_buscado = formulario.cleaned_data['especie']
+        alimentacion_buscada = formulario.cleaned_data['alimentacion']
+        animales = Animal.objects.filter(especie__icontains=animal_buscado, alimentacion__icontains=alimentacion_buscada)
+    
+    
+    return render(request, 'listado_animales.html', {'animales': animales, 'formulario': formulario})

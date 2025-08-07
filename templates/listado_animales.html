@@ -20,7 +20,9 @@
     <ul>
      {% for Animal in animales %}
         <li>
-            {{Animal}}
+            {{Animal}} 
+            | <a href="{% url 'ver_animales' Animal.id %}">Ver Detalle</a>
+            | <a href="{% url 'eliminar_animal' Animal.id %}">Eliminar</a>
         </li>
      {% endfor %}
     </ul>

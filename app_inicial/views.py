@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from datetime import datetime
 from django.http import HttpResponse
 from django.template import Template, Context, loader
@@ -115,3 +115,17 @@ def listado_animales(request):
     
     
     return render(request, 'listado_animales.html', {'animales': animales, 'formulario': formulario})
+
+def ver_animales(request, id_animal):
+    
+    animal = Animal.objects.get(id=id_animal)
+    
+    return render(request, 'ver_animales.html', {'animal':animal})
+
+def eliminar_animal(request, id_animal):
+    
+    animal = Animal.objects.get(id=id_animal)
+    animal.delete()
+    
+    return redirect('listado_animales')
+

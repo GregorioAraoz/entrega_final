@@ -1,0 +1,15 @@
+{% extends "main_template.html" %}
+
+{% block title_text  %}Detalle Animales{% endblock title_text  %}
+
+{% block texto_principal %} 
+     Detalle {{animal.especie}} (ID: {{animal.id}})
+{% endblock texto_principal %}
+
+{% block main_content %}
+<ul>
+    <li>Especie: {{ animal.especie }}</li>
+    <li>Alimentación: {{ animal.alimentacion }}</li>
+    <li>ID: {{ animal.id }}</li>
+</ul>
+{% endblock main_content %} 

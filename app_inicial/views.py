@@ -3,7 +3,7 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 from app_inicial.models import Animal
-from app_inicial.forms import formularioanimal,formulariobusqueda
+from app_inicial.forms import formularioanimal,formulariobusqueda,formularioactualizar
 
 def app_inicial(request):
     return render(request, 'main_template.html')
@@ -129,3 +129,28 @@ def eliminar_animal(request, id_animal):
     
     return redirect('listado_animales')
 
+def actualizar_animal(request, id_animal):
+    
+    animal_a_actualizar = Animal.objects.get(id=id_animal)
+    
+    if request.method == 'POST':
+        formulario = formularioactualizar(request.POST)
+        if formulario.is_valid():
+            especie = formulario.cleaned_data['especie']
+            alimentacion = formulario.cleaned_data['alimentacion']
+            
+            animal_a_actualizar.especie = especie
+            animal_a_actualizar.alimentacion = alimentacion
+            
+            animal_a_actualizar.save()
+            
+            return redirect('listado_animales')
+    else:
+        formulario = formularioactualizar(
+            initial={
+                'especie': animal_a_actualizar.especie ,
+                'alimentacion': animal_a_actualizar.alimentacion
+                }
+            )
+    
+    return render(request, 'actualizar_animal.html', {'formulario' : formulario, 'animal': animal_a_actualizar})

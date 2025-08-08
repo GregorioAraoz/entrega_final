@@ -23,6 +23,7 @@
             {{Animal}} 
             | <a href="{% url 'ver_animales' Animal.id %}">Ver Detalle</a>
             | <a href="{% url 'eliminar_animal' Animal.id %}">Eliminar</a>
+            | <a href="{% url 'actualizar_animal' Animal.id %}">Actualizar</a>
         </li>
      {% endfor %}
     </ul>

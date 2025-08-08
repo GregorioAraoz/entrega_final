@@ -1,0 +1,16 @@
+{% extends "main_template.html" %}
+
+{% block title_text  %}Actualizar Animales{% endblock title_text  %}
+
+{% block texto_principal %} 
+    Actualizar un Animal
+{% endblock texto_principal %}
+
+{% block main_content %}
+<form action={% url "actualizar_animal" animal.id %} method="POST">
+    {% csrf_token %}
+
+{{formulario}}
+    <input type="submit" value="Actualizar">
+</form>
+{% endblock main_content %}

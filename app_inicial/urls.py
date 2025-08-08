@@ -10,7 +10,8 @@ from app_inicial.views import (
     crear_animales, 
     listado_animales,
     ver_animales,
-    eliminar_animal
+    eliminar_animal,
+    actualizar_animal
 )
 urlpatterns = [
     path('', app_inicial, name='inicio'),
@@ -22,6 +23,6 @@ urlpatterns = [
     path('animal/crear/', crear_animales, name='crear_animal'),
     path('animal/', listado_animales, name='listado_animales'),
     path('animal/<int:id_animal>', ver_animales, name='ver_animales'),
-    path('animal/<int:id_animal>/eliminar/', eliminar_animal, name='eliminar_animal')
-
+    path('animal/<int:id_animal>/eliminar/', eliminar_animal, name='eliminar_animal'),
+    path('animal/<int:id_animal>/actualizar/', actualizar_animal, name='actualizar_animal')
 ]

@@ -23,11 +23,11 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class= "navbar-brand" href={% url "inicio"%}>Página Inicial</a>
-                <a class= "btn btn-primary" href={% url "condicion_y_bucle"%}>Condicion</a>
-                <a class= "btn btn-primary" href={% url "crear_animal"%}>Agregar Animal</a>
-                <a class= "btn btn-primary" href={% url "listado_animales"%}>Listado Animales</a>
-                
+                <a class= "navbar-brand" href={% url "app_inicial:inicio"%}>Página Inicial</a>
+                <a class= "btn btn-primary" href={% url "app_inicial:condicion_y_bucle"%}>Condicion</a>
+                <a class= "btn btn-primary" href={% url "app_inicial:crear_animal"%}>Agregar Animal</a>
+                <a class= "btn btn-primary" href={% url "app_inicial:listado_animales"%}>Listado Animales</a>
+                <a class= "btn btn-primary" href={% url "precios:lista_precios"%}>Precios Alimento</a>
             </div>
         </nav>
         <!-- Masthead-->

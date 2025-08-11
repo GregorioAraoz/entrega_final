@@ -17,8 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', include('app_inicial.urls')),
+#     path('app_inicial/', include('app_inicial.urls')),
+#     path('precios/', include('precios.urls'))
+# ]
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('app_inicial.urls')),
-    path('app_inicial/', include('app_inicial.urls'))
+    path('', include(('app_inicial.urls', 'app_inicial'), namespace='app_inicial')),
+    path('precios/', include(('precios.urls', 'precios'), namespace='precios')),
 ]

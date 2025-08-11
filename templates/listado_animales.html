@@ -18,12 +18,13 @@
 
 {% if animales %}
     <ul>
-     {% for Animal in animales %}
+     {% for animal in animales %}
         <li>
-            {{Animal}} 
-            | <a href="{% url 'ver_animales' Animal.id %}">Ver Detalle</a>
-            | <a href="{% url 'eliminar_animal' Animal.id %}">Eliminar</a>
-            | <a href="{% url 'actualizar_animal' Animal.id %}">Actualizar</a>
+            {{animal}} 
+            | <a href="{% url 'app_inicial:ver_animales' animal.id %}">Ver Detalle</a>
+            | <a href="{% url 'app_inicial:eliminar_animal' animal.id %}">Eliminar</a>
+            | <a href="{% url 'app_inicial:actualizar_animal' animal.id %}">Actualizar</a>
+
         </li>
      {% endfor %}
     </ul>

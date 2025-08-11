@@ -13,6 +13,10 @@ from app_inicial.views import (
     eliminar_animal,
     actualizar_animal
 )
+
+app_name = 'app_inicial'
+     
+
 urlpatterns = [
     path('', app_inicial, name='inicio'),
     # path('saludo/<str:nombre>/<str:apellido>/', saludo),

@@ -7,7 +7,7 @@
 {% endblock texto_principal %}
 
 {% block main_content %}
-<form action={% url "actualizar_animal" animal.id %} method="POST">
+<form action={% url "app_inicial:actualizar_animal" animal.id %} method="POST">
     {% csrf_token %}
 
 {{formulario}}

@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.template import Template, Context, loader
 from app_inicial.models import Animal
 from app_inicial.forms import formularioanimal,formulariobusqueda,formularioactualizar
+from django.contrib.auth.decorators import login_required
 
 def app_inicial(request):
     return render(request, 'main_template.html')
@@ -90,7 +91,7 @@ def condicion_y_bucle(request):
         "listado_de_numeros": [1, 2, 3, 4, 5, 6]
     })
     
-    
+@login_required
 def crear_animales(request):
     if request.method == 'POST':
         formulario = formularioanimal(request.POST)
@@ -104,7 +105,7 @@ def crear_animales(request):
 
     return render(request, 'crear_animales.html', {'formulario': formulario})
 
-
+@login_required
 def listado_animales(request):
     
     formulario = formulariobusqueda(request.GET)
@@ -116,19 +117,22 @@ def listado_animales(request):
     
     return render(request, 'listado_animales.html', {'animales': animales, 'formulario': formulario})
 
+@login_required
 def ver_animales(request, id_animal):
     
     animal = Animal.objects.get(id=id_animal)
     
     return render(request, 'ver_animales.html', {'animal':animal})
 
+@login_required
 def eliminar_animal(request, id_animal):
     
     animal = Animal.objects.get(id=id_animal)
     animal.delete()
     
-    return redirect('listado_animales')
+    return redirect('app_inicial:listado_animales')
 
+@login_required
 def actualizar_animal(request, id_animal):
     
     animal_a_actualizar = Animal.objects.get(id=id_animal)
@@ -144,7 +148,7 @@ def actualizar_animal(request, id_animal):
             
             animal_a_actualizar.save()
             
-            return redirect('listado_animales')
+            return redirect('app_inicial:listado_animales')
     else:
         formulario = formularioactualizar(
             initial={

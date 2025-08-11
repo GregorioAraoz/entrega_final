@@ -1,0 +1,34 @@
+{% extends "main_template.html" %}
+
+{% block title_text  %}Alimento Para Animales{% endblock title_text  %}
+
+{% block texto_principal %} 
+     Listado de Alimentos para Animales
+{% endblock texto_principal %}
+
+{% block main_content %}
+
+{% comment %} <p>
+    <form action="">
+
+        {{formulario}}
+        <input type="submit" value= "Buscar">
+    </form>
+</p> {% endcomment %}
+
+{% if alimentos %}
+    <ul>
+     {% for alimento in alimentos %}
+        <li>
+            {{alimento}} 
+            | <a href="{% url 'precios:ver_alimento' alimento.id %}">Ver Detalle</a>
+            | <a href="{% url 'precios:eliminar_alimento' alimento.id %}">Eliminar</a>
+            | <a href="{% url 'precios:actualizar_alimento' alimento.id %}">Actualizar</a>
+
+        </li>
+     {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay alimentos registrados registrados.</p>
+{% endif %}
+{% endblock main_content %} 

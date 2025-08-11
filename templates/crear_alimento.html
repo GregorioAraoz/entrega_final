@@ -1,0 +1,16 @@
+{% extends "main_template.html" %}
+
+{% block title_text  %}Agregar Nuevo Alimento{% endblock title_text  %}
+
+{% block texto_principal %} 
+    Agregar un nuevo Alimento
+{% endblock texto_principal %}
+
+{% block main_content %}
+<form action={% url "precios:crear_alimento" %} method="POST">
+    {% csrf_token %}
+
+{{formulario}}
+    <input type="submit" value="Agregar">
+</form>
+{% endblock main_content %}

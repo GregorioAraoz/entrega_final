@@ -16,6 +16,15 @@
     </form>
 </p> {% endcomment %}
 
+<p><a href="{% url 'precios:crear_alimento' %}">Agregar Nuevo Alimento</a></p>
+
+{% if formulario %}
+    <form method="get">
+        {{ formulario.as_p }}
+        <input type="submit" value="Buscar">
+    </form>
+{% endif %}
+
 {% if alimentos %}
     <ul>
      {% for alimento in alimentos %}

@@ -1,0 +1,16 @@
+{% extends "main_template.html" %}
+
+{% block title_text  %}Actualizar Alimento{% endblock title_text  %}
+
+{% block texto_principal %} 
+    Actualizar un Alimento
+{% endblock texto_principal %}
+
+{% block main_content %}
+<form action={% url "precios:actualizar_alimento" alimento.id %} method="POST">
+    {% csrf_token %}
+
+{{form}}
+    <input type="submit" value="Actualizar">
+</form>
+{% endblock main_content %}

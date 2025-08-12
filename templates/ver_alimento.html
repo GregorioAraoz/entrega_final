@@ -1,0 +1,16 @@
+{% extends "main_template.html" %}
+
+{% block title_text  %}Detalle de Alimentos{% endblock title_text  %}
+
+{% block texto_principal %} 
+     Detalle {{alimento.nombre}} (ID: {{alimento.id}})
+{% endblock texto_principal %}
+
+{% block main_content %}
+<ul>
+    <li>Nombre: {{ alimento.nombre }}</li>
+    <li>Precio: {{ alimento.precio }} / {{alimento.unidad}}</li>
+    <li>ID: {{ alimento.id }}</li>
+    <li>Descripcion: {{ alimento.descripcion }}</li>
+</ul>
+{% endblock main_content %} 

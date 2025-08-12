@@ -1,0 +1,18 @@
+{% extends "main_template.html" %}
+
+{% block title_text  %}Eliminar Alimento{% endblock title_text  %}
+
+{% block texto_principal %} 
+    Eliminar un Alimento
+{% endblock texto_principal %}
+
+{% block main_content %}
+<form action={% url "precios:eliminar_alimento" alimento.id %} method="POST">
+    {% csrf_token %}
+
+    <p>
+        Confirma que desea eliminar el alimento: <strong>{{ alimento.nombre }}</strong>?
+
+    <input type="submit" value="Confirmar Eliminación">
+</form>
+{% endblock main_content %}

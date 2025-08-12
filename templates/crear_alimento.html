@@ -10,7 +10,7 @@
 <form action={% url "precios:crear_alimento" %} method="POST">
     {% csrf_token %}
 
-{{formulario}}
+{{form}}
     <input type="submit" value="Agregar">
 </form>
 {% endblock main_content %}

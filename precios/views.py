@@ -5,6 +5,7 @@ from precios.models import Alimento
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def alimento(request):
     return HttpResponse("Lista de precios está Funcionando")
@@ -14,23 +15,23 @@ class Alimentos(ListView):
     template_name = "lista_precios.html"
     context_object_name = 'alimentos'
 
-class CrearAlimento(CreateView):
+class CrearAlimento(LoginRequiredMixin, CreateView):
     model = Alimento
     template_name = "crear_alimento.html"
     fields = ['nombre', 'precio', 'unidad', 'descripcion']
     success_url = reverse_lazy('precios:lista_precios')
     
-class Ver_alimento(DetailView):
+class Ver_alimento(LoginRequiredMixin, DetailView):
     model = Alimento
     template_name = "ver_alimento.html"
 
-class Actualizar_Alimento(UpdateView):
+class Actualizar_Alimento(LoginRequiredMixin, UpdateView):
     model = Alimento
     template_name = "actualizar_alimento.html"
     fields = ['nombre', 'precio', 'unidad', 'descripcion']
     success_url = reverse_lazy('precios:lista_precios')
  
-class Eliminar_Alimento(DeleteView):
+class Eliminar_Alimento(LoginRequiredMixin, DeleteView):
     model = Alimento
     template_name = "eliminar_alimento.html"
     success_url = reverse_lazy('precios:lista_precios')

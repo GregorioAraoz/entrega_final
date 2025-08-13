@@ -1,0 +1,16 @@
+{% extends "main_template.html" %}
+
+{% block title_text  %}Login{% endblock title_text  %}
+
+{% block texto_principal %} 
+    Inicie sesión con su Usuario y Contraseña
+{% endblock texto_principal %}
+
+{% block main_content %}
+<form action={% url "usuarios:login" %} method="POST">
+    {% csrf_token %}
+
+{{formulario}}
+    <input type="submit" value="Login">
+</form>
+{% endblock main_content %}

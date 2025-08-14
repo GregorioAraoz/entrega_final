@@ -29,6 +29,7 @@
                 <a class= "navbar-brand" href={% url "app_inicial:crear_animal"%}>Agregar Animal</a>
                 <a class= "navbar-brand" href={% url "app_inicial:listado_animales"%}>Listado Animales</a>
                 <a class= "navbar-brand" href={% url "precios:lista_precios"%}>Precios Alimento</a>
+                <a class= "navbar-brand" href='#'>{{request.user.username}}</a>
                 <form action={% url "usuarios:logout" %}  method="POST">
                     {% csrf_token %}
                    <input class="btn btn-secondary" type="submit" value="Logout">
@@ -36,6 +37,8 @@
                 {% else %} 
                 
                 <a class="btn btn-primary" href={% url "usuarios:login"%}> Login</a>
+                <a class="btn btn-info" href={% url "usuarios:registro"%}> Registrarse</a>
+                
                 {% endif %}
                 
                 {% comment %} <a class="btn btn-primary" href={% url "usuarios:logout"%}> Logout</a> {% endcomment %}

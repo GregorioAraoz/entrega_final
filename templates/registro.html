@@ -1,0 +1,16 @@
+{% extends "main_template.html" %}
+
+{% block title_text  %}Registro{% endblock title_text  %}
+
+{% block texto_principal %} 
+    Registre su Usuario
+{% endblock texto_principal %}
+
+{% block main_content %}
+<form action={% url "usuarios:registro" %} method="POST">
+    {% csrf_token %}
+
+{{formulario}}
+    <input type="submit" value="Registrarse">
+</form>
+{% endblock main_content %}
